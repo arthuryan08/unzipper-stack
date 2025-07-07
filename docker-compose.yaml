@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  unzipper:
+    build: .
+    container_name: unzipper-python
+    restart: unless-stopped
+    ports:
+      - "18000:8000"
+    networks:
+      - OldimarNet # Ou remova essa linha e a sessão networks caso não use uma rede custom, use 'bridge' no default
+
+networks:
+  OldimarNet:
+    external: true
